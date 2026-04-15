@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "3", label: "Уникальных квеста" },
-  { value: "98%", label: "Уровень страха" },
-  { value: "2-6", label: "Игроков" },
-  { value: "60", label: "Минут на побег" },
+  { value: "60", label: "Minutes to Escape" },
+  { value: "9/10", label: "Fear Rating" },
+  { value: "2-8", label: "Players" },
+  { value: "16+", label: "Age Requirement" },
 ];
 
 const AboutSection = () => {
@@ -19,12 +19,15 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground text-glow mb-6">
-            ЧТО ТАКОЕ <span className="text-primary">DARK MIND</span>?
+            WHO <span className="text-primary">WE ARE</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-body leading-relaxed">
-            Dark Mind — это квест-комнаты нового поколения в Торонто, где искусственный интеллект 
-            адаптируется к вашим действиям в реальном времени. Каждое прохождение уникально. 
-            AI меняет загадки, атмосферу и сценарий на основе вашего поведения.
+            Don't Look Back! was born from a simple belief: that the best experiences are the ones 
+            that make your heart pound. We combine cinematic storytelling, cutting-edge AI technology, 
+            and live performance to create moments that stay with you long after you escape.
+          </p>
+          <p className="text-muted-foreground/70 text-base max-w-2xl mx-auto font-body mt-4">
+            Or don't escape. We enjoy that too.
           </p>
         </motion.div>
 
@@ -38,10 +41,10 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="bg-card border border-border p-6 text-center border-glow"
             >
-              <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
+              <div className="font-heading text-3xl md:text-4xl font-bold text-primary mb-2">
                 {stat.value}
               </div>
-              <div className="text-muted-foreground text-sm uppercase tracking-wider font-body">
+              <div className="text-muted-foreground text-xs uppercase tracking-wider font-body">
                 {stat.label}
               </div>
             </motion.div>
