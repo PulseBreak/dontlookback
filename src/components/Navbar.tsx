@@ -1,24 +1,26 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4">
-        <a href="#" className="font-heading text-xl font-bold text-foreground">
-          DARK<span className="text-primary"> MIND</span>
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+        <a href="#" className="flex items-center gap-3">
+          <img src={logo} alt="Don't Look Back" className="w-10 h-10 object-contain" />
+          <span className="font-heading text-lg font-bold text-foreground hidden sm:block">
+            DON'T LOOK <span className="text-primary">BACK</span>
+          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-body">
-          <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">О нас</a>
-          <a href="#rooms" className="text-muted-foreground hover:text-primary transition-colors">Квесты</a>
-          <a
-            href="#"
-            className="px-5 py-2 bg-primary text-primary-foreground font-heading uppercase tracking-wider text-xs hover:brightness-125 transition-all"
-          >
-            Бронь
+          <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
+          <a href="#experience" className="text-muted-foreground hover:text-primary transition-colors">Experience</a>
+          <a href="#faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a>
+          <a href="#book" className="px-5 py-2 bg-primary text-primary-foreground font-heading uppercase tracking-wider text-xs hover:brightness-125 transition-all">
+            Book Now
           </a>
         </div>
 
@@ -38,9 +40,10 @@ const Navbar = () => {
             className="md:hidden overflow-hidden bg-card border-t border-border"
           >
             <div className="flex flex-col p-4 gap-4 font-body text-sm">
-              <a href="#about" onClick={() => setOpen(false)} className="text-muted-foreground hover:text-primary transition-colors">О нас</a>
-              <a href="#rooms" onClick={() => setOpen(false)} className="text-muted-foreground hover:text-primary transition-colors">Квесты</a>
-              <a href="#" className="py-2 bg-primary text-primary-foreground text-center font-heading uppercase tracking-wider text-xs">Бронь</a>
+              <a href="#about" onClick={() => setOpen(false)} className="text-muted-foreground hover:text-primary">About</a>
+              <a href="#experience" onClick={() => setOpen(false)} className="text-muted-foreground hover:text-primary">Experience</a>
+              <a href="#faq" onClick={() => setOpen(false)} className="text-muted-foreground hover:text-primary">FAQ</a>
+              <a href="#book" onClick={() => setOpen(false)} className="py-2 bg-primary text-primary-foreground text-center font-heading uppercase tracking-wider text-xs">Book Now</a>
             </div>
           </motion.div>
         )}
