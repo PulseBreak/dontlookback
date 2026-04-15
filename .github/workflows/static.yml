@@ -26,12 +26,12 @@ jobs:
           rm -f package-lock.json
           rm -f bun.lockb
           npm install --force
-          # Силовая установка плагина, на который ругается Vite
-          npm install @vitejs/plugin-react --save-dev
+          # Устанавливаем инструменты для работы с TS напрямую
+          npm install typescript tsx @vitejs/plugin-react --save-dev
 
       - name: Build
-        # Запускаем сборку напрямую через npx, чтобы подтянуть все либы
-        run: npx vite build
+        # Запускаем билд. Мы добавили зависимости выше, теперь Vite должен съесть .ts конфиг
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
