@@ -15,15 +15,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+
       - name: Install dependencies
-        run: npm install
+        # Очищаем кэш и устанавливаем всё заново, включая недостающий плагин
+        run: |
+          npm install
+          npm install @vitejs/plugin-react --save-dev
+
       - name: Build
-        run: npm run build
+        # Используем npx vite build, чтобы точно подцепить локальные зависимости
+        run: npx vite build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
