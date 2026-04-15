@@ -22,14 +22,12 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        # Очищаем кэш и устанавливаем всё заново, включая недостающий плагин
-        run: |
-          npm install
-          npm install @vitejs/plugin-react --save-dev
+        # Добавляем --force, чтобы обойти ошибку ERESOLVE
+        run: npm install --force
 
       - name: Build
-        # Используем npx vite build, чтобы точно подцепить локальные зависимости
-        run: npx vite build
+        # Собираем проект
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
